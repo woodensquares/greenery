@@ -1,4 +1,7 @@
 
+[![Build Status](https://travis-ci.org/woodensquares/greenery.svg "Travis CI status")](https://travis-ci.org/woodensquares/greenery)
+[![GoDoc](https://godoc.org/github.com/woodensquares/greenery?status.svg)](https://godoc.org/github.com/woodensquares/greenery)
+
 # NOTE
 
 Greenery has not been officially released yet, it is undergoing final
@@ -12,7 +15,7 @@ Greenery is a library that can be used to create localized CLI applications
 supporting command-line, environment and configuration-file options.
 
 It is an opinionated porcelain built on top of
-[Cobra](https://github.com/spf13/cobra) and
+[Cobra](https://github.com/woodensquares/greenery) and
 [Viper](https://github.com/spf13/viper). In greenery, rather than via code,
 the configuration variables are defined in a single configuration structure,
 which is mapped to the user-visible variables via golang struct annotations.

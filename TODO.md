@@ -1,11 +1,7 @@
 Overall
 -------
 
-Add codecov / circleci / travisci badges
-
-Add godoc badge
-
-Tag 0.9
+Add codecov badge/link
 
 Documentation
 -------------
