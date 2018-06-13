@@ -1,5 +1,6 @@
 
 [![Build Status](https://travis-ci.org/woodensquares/greenery.svg "Travis CI status")](https://travis-ci.org/woodensquares/greenery)
+[![Coverage status](https://codecov.io/github/woodensquares/greenery/branch/master/graph/badge.svg)](https://codecov.io/github/woodensquares/greenery?branch=master)
 [![GoDoc](https://godoc.org/github.com/woodensquares/greenery?status.svg)](https://godoc.org/github.com/woodensquares/greenery)
 
 # NOTE

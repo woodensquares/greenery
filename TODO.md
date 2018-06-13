@@ -1,8 +1,3 @@
-Overall
--------
-
-Add codecov badge/link
-
 Documentation
 -------------
 Finalize the toplevel README
