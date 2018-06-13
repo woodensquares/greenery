@@ -1,0 +1,21 @@
+Configuration file related commands
+
+Usage:
+  simple config [command]
+
+Available Commands:
+  display     Shows the current configuration values
+  env         Shows the active environment variables that would impact the program
+  init        Creates a default config file in cwd or where --location is set
+
+Global Flags:
+  -c, --config string      The configuration file location
+      --help               help information for the application.
+      --log-file string    The log file location
+  -l, --log-level string   The log level of the program. Valid values are "error", "warn", "info" and "debug" (default "error")
+      --no-env             If set the environment variables will not be considered
+      --pretty             If set the console output of the logging calls will be prettified
+  -v, --verbosity int      The verbosity of the program, an integer between 0 and 3 inclusive. (default 1)
+
+"simple config [command] --help" provides more information about a command.
+

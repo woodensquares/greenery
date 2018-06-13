@@ -1,0 +1,19 @@
+Uso:
+  simple [comando]
+
+Comandi disponibili:
+  config      Comandi relativi alla configurazione
+  help        Informazioni dell'uso per un qualsiasi comando
+  version     Mostra la versione del programma
+
+Opzioni:
+  -c, --config string      Il file di configurazione da usare
+      --help               informazioni dell'uso per l'applicazione
+      --log-file string    Il file dove stampare il log
+  -l, --log-level string   Il livello di logging del programma. Valori validi sono "error", "warn", "info" e "debug" (default "error")
+      --no-env             Se questa opzione é settata, le variabili di sistema saranni ignorate
+      --pretty             Se questa opzione é settata, i messaggi sulla console saranno mostrati in modo colorato
+  -v, --verbosity int      La verbositá del programma, un numero da 0 a 3 inclusi (default 1)
+
+"simple [comando] --help" dá più informazioni su un comando.
+

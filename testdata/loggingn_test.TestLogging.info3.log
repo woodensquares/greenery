@@ -1,0 +1,7 @@
+{"level":"info","ts":1524510097.478616,"msg":"InfoQ 1"}
+{"level":"info","ts":1524510097.4786208,"msg":"InfoQF 1"}
+{"level":"info","ts":1524510097.4786224,"msg":"Info 2"}
+{"level":"info","ts":1524510097.4786243,"msg":"Infof 2"}
+{"level":"info","ts":1524510097.4786255,"msg":"InfoV 3"}
+{"level":"info","ts":1524510097.4786315,"msg":"InfoVF 3"}
+{"level":"error","ts":1524510097.478633,"msg":"Error"}

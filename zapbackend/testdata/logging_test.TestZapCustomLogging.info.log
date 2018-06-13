@@ -1,0 +1,3 @@
+{"level":"info","ts":1528221119.6713722,"msg":"Info","string":"hi there","int":3,"duration":1}
+{"level":"warn","ts":1528221119.6714048,"msg":"Warn","string":"hi there","int":3,"duration":1}
+{"level":"error","ts":1528221119.671413,"msg":"Error","string":"hi there","int":3,"duration":1}

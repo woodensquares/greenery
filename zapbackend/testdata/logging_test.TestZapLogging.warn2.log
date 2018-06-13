@@ -1,0 +1,6 @@
+{"level":"warn","ts":1525374354.9106736,"msg":"Warning"}
+{"level":"warn","ts":1525374354.9106796,"msg":"Warning 1"}
+{"level":"warn","ts":1525374354.910683,"msg":"Warning","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"error","ts":1525374354.910687,"msg":"Error"}
+{"level":"error","ts":1525374354.9106894,"msg":"Error 1"}
+{"level":"error","ts":1525374354.9106917,"msg":"Error","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}

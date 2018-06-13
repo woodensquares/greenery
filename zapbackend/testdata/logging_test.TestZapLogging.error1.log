@@ -1,0 +1,3 @@
+{"level":"error","ts":1525374354.9177125,"msg":"Error"}
+{"level":"error","ts":1525374354.9177327,"msg":"Error 1"}
+{"level":"error","ts":1525374354.9177356,"msg":"Error","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}

@@ -1,0 +1,21 @@
+Quando questo comando é eseguito, un file di configurazione viene creato dove
+specificato (nella directory corrente di default, o a seconda del valore della opzione 
+location). Questo file di configurazione conterrá tutte le variabili disponibili
+inizializzate al loro valore di default.
+
+Uso:
+  simple config init [opzioni]
+
+Opzioni:
+      --force             Se presente, se c'é un file di configurazione, sará sovrascritto
+      --location string   Dove scrivere il file di configurazione, uno di "cwd", "user" o "system" (default "cwd")
+
+Opzioni globali:
+  -c, --config string      Il file di configurazione da usare
+      --help               informazioni dell'uso per l'applicazione
+      --log-file string    Il file dove stampare il log
+  -l, --log-level string   Il livello di logging del programma. Valori validi sono "error", "warn", "info" e "debug" (default "error")
+      --no-env             Se questa opzione é settata, le variabili di sistema saranni ignorate
+      --pretty             Se questa opzione é settata, i messaggi sulla console saranno mostrati in modo colorato
+  -v, --verbosity int      La verbositá del programma, un numero da 0 a 3 inclusi (default 1)
+

@@ -1,0 +1,1 @@
+{"level":"error","ts":1528221483.2731755,"msg":"Invalid logging data","data":"([]int) (len=2 cap=2) {\n (int) 3,\n (int) 4\n}\n"}

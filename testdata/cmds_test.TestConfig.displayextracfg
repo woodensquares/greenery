@@ -1,0 +1,48 @@
+ 
+The following configuration values have been parsed. A selection of base
+configuration values is included and displayed first.
+
+Note that only the root commandline parameters will be parsed when invoking
+this command, so commandline overrides for config/env values will not be in
+effect.  
+
+---------------------------------------------------------------------------
+ConfFile: /tmp/tcfg237838922.toml
+Loaded base,user languages (accessible via GetDocs): ,en,en
+Loaded config file, if any (accessible via GetConfigFile): /tmp/tcfg237838922.toml
+LogFile: /tmp/tlog609071393.log
+LogLevel: error
+Verbosity: 1
+VersionFull: 
+VersionMajor: 0
+VersionMinor: 0
+VersionPatchlevel: 
+
+Bool: true
+Duration: 48h16m32.045s
+FlagCString: HELLO
+FlagEnum: b
+FlagIP: 127.0.0.1
+FlagInt: 400
+FlagPort: 80
+Float32: 12.34
+Float64: -56.78
+Int16: -3
+Int32: -4
+Int64: -5
+Int8: -2
+Int: -1
+NameEnum: [{k1 a} {k2 b} {k3 c}]
+NameValue: [{k1 v1} {k2 v2} {k3 v3}]
+PTime: 2017-06-03 12:08:32.000000454 +0000 UTC
+SliceInt: [1 2 3 4]
+SliceString: [first second third]
+String: init
+Time: 2018-06-03 12:08:32.000000454 +0000 UTC
+Uint16: 3
+Uint32: 4
+Uint64: 5
+Uint8: 2
+Uint: 1
+---------------------------------------------------------------------------
+

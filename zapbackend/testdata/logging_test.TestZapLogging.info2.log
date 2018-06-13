@@ -1,0 +1,12 @@
+{"level":"info","ts":1525374354.9057777,"msg":"Infoq 1"}
+{"level":"info","ts":1525374354.9057834,"msg":"Infoqf 1"}
+{"level":"info","ts":1525374354.9057865,"msg":"Infoqs 1","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"info","ts":1525374354.9057922,"msg":"Info 2"}
+{"level":"info","ts":1525374354.9057946,"msg":"Infof 2"}
+{"level":"info","ts":1525374354.9057975,"msg":"Infos 2","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"warn","ts":1525374354.905801,"msg":"Warning"}
+{"level":"warn","ts":1525374354.9058032,"msg":"Warning 1"}
+{"level":"warn","ts":1525374354.905806,"msg":"Warning","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"error","ts":1525374354.9058087,"msg":"Error"}
+{"level":"error","ts":1525374354.9058106,"msg":"Error 1"}
+{"level":"error","ts":1525374354.9058175,"msg":"Error","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}

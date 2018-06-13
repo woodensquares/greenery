@@ -1,0 +1,23 @@
+Usage:
+  simple [RFORMAT] [flags]
+  simple [command]
+
+Examples:
+example information about the various formats in general
+
+Available Commands:
+  config      Configuration file related commands
+  help        Help about any command
+  version     Prints out the version number of the program
+
+Flags:
+  -c, --config string      The configuration file location
+      --help               help information for the application.
+      --log-file string    The log file location
+  -l, --log-level string   The log level of the program. Valid values are "error", "warn", "info" and "debug" (default "error")
+      --no-env             If set the environment variables will not be considered
+      --pretty             If set the console output of the logging calls will be prettified
+  -v, --verbosity int      The verbosity of the program, an integer between 0 and 3 inclusive. (default 1)
+
+"simple [command] --help" provides more information about a command.
+

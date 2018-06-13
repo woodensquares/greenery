@@ -1,0 +1,12 @@
+# Config generated while testing
+
+# The log file location
+log-file = "/tmp/tlog866881776.log"
+# The log level of the program. Valid values are "error", "warn", "info" and "debug"
+log-level = "error"
+# If set the environment variables will not be considered
+no-env = false
+# If set the console output of the logging calls will be prettified
+pretty = false
+# The verbosity of the program, an integer between 0 and 3 inclusive.
+verbosity = 1

@@ -1,0 +1,21 @@
+When this command is executed a configuration file will be created
+in the specified location (in the current directory by default, or governed 
+by the value passed to the location flag). This configuration file will contain
+all the supported variables with their default values
+
+Usage:
+  simple config init [flags]
+
+Flags:
+      --force             If specified, any existing configuration files will be overwritten
+      --location string   Where to write the configuration file, one of "cwd", "user" or "system" (default "cwd")
+
+Global Flags:
+  -c, --config string      The configuration file location
+      --help               help information for the application.
+      --log-file string    The log file location
+  -l, --log-level string   The log level of the program. Valid values are "error", "warn", "info" and "debug" (default "error")
+      --no-env             If set the environment variables will not be considered
+      --pretty             If set the console output of the logging calls will be prettified
+  -v, --verbosity int      The verbosity of the program, an integer between 0 and 3 inclusive. (default 1)
+

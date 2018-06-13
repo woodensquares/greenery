@@ -1,0 +1,9 @@
+{"level":"info","ts":1525374354.9069955,"msg":"Infoq 1"}
+{"level":"info","ts":1525374354.9070022,"msg":"Infoqf 1"}
+{"level":"info","ts":1525374354.9070058,"msg":"Infoqs 1","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"warn","ts":1525374354.907011,"msg":"Warning"}
+{"level":"warn","ts":1525374354.9070137,"msg":"Warning 1"}
+{"level":"warn","ts":1525374354.9070163,"msg":"Warning","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"error","ts":1525374354.907019,"msg":"Error"}
+{"level":"error","ts":1525374354.907021,"msg":"Error 1"}
+{"level":"error","ts":1525374354.9070237,"msg":"Error","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}

@@ -1,0 +1,21 @@
+Enwhay histay ommandcay isay executeday aay onfigurationcay ilefay illway ebay reatedcay
+"inay hetay pecifiedsay ocationlay (in hetay urrentcay irectoryday ybay default", oray overnedgay
+"ybay hetay aluevay assedpay otay hetay wdcay flag). Histay onfigurationcay ilefay illway ontaincay
+"allay hetay upportedsay ariablesvay ithway heirtay efaultday values
+
+Sageuay:
+  simple config init [lagsfay]
+
+Lagsfay:
+      --force             Fiay specified, anyay existingay onfigurationcay ilesfay illway ebay overwrittenay
+      --location string   Hereway otay itewray hetay onfigurationcay ilefay, oneay ofay "cwd", "user" oray "system" (default "cwd")
+
+Lobalgay Lagsfay:
+  -c, --config string      Hetay onfigurationcay ilefay ocationlay
+      --help               Elphay informationay orfay ethay applicationay.
+      --log-file string    Hetay oglay ilefay ocationlay
+  -l, --log-level string   Hetay oglay evellay ofay hetay ogrampray. Alidvay aluesvay areay "error", "warn", "info" anday "debug" (default "error")
+      --no-env             Fiay etsay hetay environmentay ariablesvay illway otnay ebay onsideredcay
+      --pretty             Fiay etsay hetay onsolecay outputay ofay hetay ogginglay allscay illway ebay ettifiedpray
+  -v, --verbosity int      Hetay erbosityvay ofay hetay ogrampray, anay integeray etweenbay 0 anday 3 inclusiveay. (default 1)
+

@@ -1,0 +1,25 @@
+Comandi relativi alla configurazione
+
+Uso:
+  simple config [FORMATOC] [opzioni]
+  simple config [comando]
+
+Esempi:
+informazioni sui formati per la configurazione
+
+Comandi disponibili:
+  display     Mostra la configurazione corrente
+  env         Mostra le variabili di sistema relative al programma
+  init        Crea un file di configurazione nella directory corrente o dove é deciso da --location
+
+Opzioni globali:
+  -c, --config string      Il file di configurazione da usare
+      --help               informazioni dell'uso per l'applicazione
+      --log-file string    Il file dove stampare il log
+  -l, --log-level string   Il livello di logging del programma. Valori validi sono "error", "warn", "info" e "debug" (default "error")
+      --no-env             Se questa opzione é settata, le variabili di sistema saranni ignorate
+      --pretty             Se questa opzione é settata, i messaggi sulla console saranno mostrati in modo colorato
+  -v, --verbosity int      La verbositá del programma, un numero da 0 a 3 inclusi (default 1)
+
+"simple config [comando] --help" dá più informazioni su un comando.
+

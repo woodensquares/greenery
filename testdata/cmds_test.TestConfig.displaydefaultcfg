@@ -1,0 +1,22 @@
+ 
+The following configuration values have been parsed. A selection of base
+configuration values is included and displayed first.
+
+Note that only the root commandline parameters will be parsed when invoking
+this command, so commandline overrides for config/env values will not be in
+effect.  
+
+---------------------------------------------------------------------------
+ConfFile: /tmp/tcfg891283732.toml
+Loaded base,user languages (accessible via GetDocs): ,en,en
+Loaded config file, if any (accessible via GetConfigFile): /tmp/tcfg891283732.toml
+LogFile: /tmp/tlog133528419.log
+LogLevel: error
+Verbosity: 1
+VersionFull: 
+VersionMajor: 0
+VersionMinor: 0
+VersionPatchlevel: 
+
+---------------------------------------------------------------------------
+

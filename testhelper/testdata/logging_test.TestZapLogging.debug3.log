@@ -1,0 +1,24 @@
+{"level":"debug","ts":1525374354.757873,"msg":"Debugq 1"}
+{"level":"debug","ts":1525374354.7578866,"msg":"Debugqf 1"}
+{"level":"debug","ts":1525374354.7579477,"msg":"Debugqs 1","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"debug","ts":1525374354.7579548,"msg":"Debug 2"}
+{"level":"debug","ts":1525374354.7579577,"msg":"Debugf 2"}
+{"level":"debug","ts":1525374354.7579606,"msg":"Debugs 2","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"debug","ts":1525374354.757963,"msg":"Debugv 3"}
+{"level":"debug","ts":1525374354.757965,"msg":"Debugvf 3"}
+{"level":"debug","ts":1525374354.7579677,"msg":"Debugvs 3","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"info","ts":1525374354.7579699,"msg":"Infoq 1"}
+{"level":"info","ts":1525374354.757972,"msg":"Infoqf 1"}
+{"level":"info","ts":1525374354.7579744,"msg":"Infoqs 1","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"info","ts":1525374354.7579768,"msg":"Info 2"}
+{"level":"info","ts":1525374354.7579832,"msg":"Infof 2"}
+{"level":"info","ts":1525374354.7579858,"msg":"Infos 2","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"info","ts":1525374354.7579885,"msg":"Infov 3"}
+{"level":"info","ts":1525374354.75799,"msg":"Infovf 3"}
+{"level":"info","ts":1525374354.7579923,"msg":"Infovs 3","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"warn","ts":1525374354.7579944,"msg":"Warning"}
+{"level":"warn","ts":1525374354.7579963,"msg":"Warning 1"}
+{"level":"warn","ts":1525374354.7579987,"msg":"Warning","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}
+{"level":"error","ts":1525374354.7580006,"msg":"Error"}
+{"level":"error","ts":1525374354.7580025,"msg":"Error 1"}
+{"level":"error","ts":1525374354.7580047,"msg":"Error","int":111,"string":"string","generic":true,"time":1527855331.5,"duration":60}

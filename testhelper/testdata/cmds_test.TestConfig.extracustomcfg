@@ -1,0 +1,86 @@
+# Config manually changed
+
+# The log file location
+log-file = "/tmp/tlog829648452.log"
+# The log level of the program. Valid values are "error", "warn", "info" and "debug"
+log-level = "info"
+# If set the environment variables will not be considered
+no-env = true
+# If set the console output of the logging calls will be prettified
+pretty = true
+# The verbosity of the program, an integer between 0 and 3 inclusive.
+verbosity = 2
+
+# config bool section
+[bool]
+# config bool
+bool = false
+
+# config custom section
+[custom]
+# some example custom parameter name enum, valid values a,b,c
+[[custom.nameenum]]
+name = "j1"
+enum = "a"
+
+[[custom.nameenum]]
+name = "j2"
+enum = "b"
+
+[[custom.nameenum]]
+name = "j3"
+enum = "c"
+
+# some example custom parameter name values
+[[custom.namevalue]]
+name = "j1"
+value = "v1"
+
+[[custom.namevalue]]
+name = "j2"
+value = "v2"
+
+[[custom.namevalue]]
+name = "j3"
+value = "v3"
+
+# config flag section
+[flag]
+# config cstring
+cstring = "HiHiHi"
+# config enum
+enum = "c"
+# config int
+int = 500
+# config ip
+ip = "192.168.1.1"
+# config port
+port = 443
+
+# config int section
+[int]
+# config int
+int = -11
+# config int16
+int16 = -13
+# config int32
+int32 = -14
+# config int64
+int64 = -15
+# config int8
+int8 = -12
+# config uint
+uint = 11
+# config uint16
+uint16 = 13
+# config uint32
+uint32 = 14
+# config uint64
+uint64 = 15
+# config uint8
+uint8 = 12
+
+# config string section
+[string]
+# config string
+string = "other"

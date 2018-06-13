@@ -1,0 +1,16 @@
+Howsay hetay urrentcay onfigurationcay aluesvay akingtay intoay accountay allay environmentay
+"anday onfigurationcay ilefay values. Command-line agsflay invaliday orfay hetay onfigcay isplayday
+"ommandcay ouldway otnay ebay displayed
+
+Sageuay:
+  simple config display [lagsfay]
+
+Lobalgay Lagsfay:
+  -c, --config string      Hetay onfigurationcay ilefay ocationlay
+      --help               Elphay informationay orfay ethay applicationay.
+      --log-file string    Hetay oglay ilefay ocationlay
+  -l, --log-level string   Hetay oglay evellay ofay hetay ogrampray. Alidvay aluesvay areay "error", "warn", "info" anday "debug" (default "error")
+      --no-env             Fiay etsay hetay environmentay ariablesvay illway otnay ebay onsideredcay
+      --pretty             Fiay etsay hetay onsolecay outputay ofay hetay ogginglay allscay illway ebay ettifiedpray
+  -v, --verbosity int      Hetay erbosityvay ofay hetay ogrampray, anay integeray etweenbay 0 anday 3 inclusiveay. (default 1)
+

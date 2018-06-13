@@ -1,0 +1,6 @@
+Warning
+Warning 1
+Warning int: 111 string: string generic: true time: 2018-06-01 12:15:31.5 +0000 UTC duration: 1m0s
+Error
+Error 1
+Error int: 111 string: string generic: true time: 2018-06-01 12:15:31.5 +0000 UTC duration: 1m0s
