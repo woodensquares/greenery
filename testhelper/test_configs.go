@@ -157,7 +157,7 @@ type ExtraConfigCustomNameValue struct {
 	Value string
 }
 
-// GetTyped is FIXME:DOC
+// GetTyped is an accessor returning the name/value pair as a string list
 func (e *ExtraConfigCustomNameValue) GetTyped() []string {
 	return []string{e.Name, e.Value}
 }
@@ -168,7 +168,7 @@ type ExtraConfigCustomNameEnum struct {
 	Enum *greenery.EnumValue
 }
 
-// GetTyped is FIXME:DOC
+// GetTyped is an accessor returning the name/value pair as a string list
 func (e *ExtraConfigCustomNameEnum) GetTyped() []string {
 	return []string{e.Name, e.Enum.GetTyped()}
 }
@@ -179,7 +179,8 @@ var ExtraConfigCustomVars = []string{
 	"custom.nameenum",
 }
 
-// ExtraConfigCustomComparers is FIXME:DOC
+// ExtraConfigCustomComparers is a set of compare functions used for the
+// built-in base config types
 var ExtraConfigCustomComparers = map[string]CompareFunc{
 	"FlagIP":      CompareGetterToGetter,
 	"FlagEnum":    CompareGetterToGetter,
@@ -229,7 +230,9 @@ type ExtraConfig struct {
 	internal string
 }
 
-// UcFirstAndUpcase is FIXME:DOC
+// UcFirstAndUpcase is an arbitrary validation function used by the custom
+// string flag in ExtraConfig, it will fail if the value does not start with
+// an uppercase character, and will return an uppercased version of the value
 func UcFirstAndUpcase(name, s string, data interface{}) (string, error) {
 	r, _ := utf8.DecodeRuneInString(s)
 	if !unicode.IsUpper(r) {
@@ -367,7 +370,8 @@ func ExtraConfigCustomParse(lcfg greenery.Config, vals map[string]interface{}) (
 	return
 }
 
-// ExtraConfigCustomCompareNameEnum is FIXME:DOC
+// ExtraConfigCustomCompareNameEnum is a comparer function for the
+// ExtraConfigCustomNameEnum type
 func ExtraConfigCustomCompareNameEnum(t *testing.T, name string, vl, vr interface{}) error {
 	right, ok := vr.([]ExtraConfigCustomNameEnum)
 	if !ok {
@@ -393,7 +397,8 @@ func ExtraConfigCustomCompareNameEnum(t *testing.T, name string, vl, vr interfac
 	return nil
 }
 
-// ExtraConfigCustomCompareNameValue is FIXME:DOC
+// ExtraConfigCustomCompareNameValue is a comparer function for the
+// ExtraConfigCustomNameValue type
 func ExtraConfigCustomCompareNameValue(t *testing.T, name string, vl, vr interface{}) error {
 	right, ok := vr.([]ExtraConfigCustomNameValue)
 	if !ok {

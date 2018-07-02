@@ -10,6 +10,7 @@ Ethay ollowingfay environmentay ariablesvay areay availableay orfay isthay ogram
 SIMPLE_CONFIGFILE: Hetay onfigurationcay ilefay ocationlay
 SIMPLE_LOGFILE: Hetay oglay ilefay ocationlay
 SIMPLE_LOGLEVEL: Hetay oglay evellay ofay hetay ogrampray. Alidvay aluesvay areay "error", "warn", "info" anday "debug"
+SIMPLE_NOCFG: Fiay etsay onay onfigurationay ilefay illway ebay oadedlay
 SIMPLE_PRETTY: Fiay etsay hetay onsolecay outputay ofay hetay ogginglay allscay illway ebay ettifiedpray
 SIMPLE_TRACE: Enablesay acingtray
 SIMPLE_VERBOSITY: Hetay erbosityvay ofay hetay ogrampray, anay integeray etweenbay 0 anday 3 inclusiveay.

@@ -105,6 +105,58 @@ log-level = "debug"
 			OverrideBuiltinHandlers: true,
 			BuiltinHandlers:         map[string]greenery.Handler{"version": testhelper.NopNoArgs},
 		},
+
+		testhelper.TestCase{
+			Name: "Check for precedence 5 between cmd > env > config + no-conf, env",
+			Env: map[string]string{
+				"SIMPLE_VERBOSITY": "2",
+				"SIMPLE_LOGLEVEL":  "info",
+			},
+			CmdLine: []string{
+				"version",
+				"--no-cfg",
+			},
+
+			CfgContents: `# Set verbosity
+verbosity = 3
+log-level = "debug"
+`,
+
+			ExpectedValues: map[string]testhelper.Comparer{
+				"NoCfg":     testhelper.Comparer{Value: true},
+				"Verbosity": testhelper.Comparer{Value: 2, Accessor: "GetTyped"},
+				"LogLevel":  testhelper.Comparer{Value: "info", Accessor: "GetTyped"},
+			},
+
+			OverrideBuiltinHandlers: true,
+			BuiltinHandlers:         map[string]greenery.Handler{"version": testhelper.NopNoArgs},
+		},
+
+		testhelper.TestCase{
+			Name: "Check for precedence 6 between cmd > env > config + no-conf, env",
+			Env: map[string]string{
+				"SIMPLE_VERBOSITY": "2",
+				"SIMPLE_LOGLEVEL":  "info",
+				"SIMPLE_NOCFG":     "1",
+			},
+			CmdLine: []string{
+				"version",
+			},
+
+			CfgContents: `# Set verbosity
+verbosity = 3
+log-level = "debug"
+`,
+
+			ExpectedValues: map[string]testhelper.Comparer{
+				"NoCfg":     testhelper.Comparer{Value: true},
+				"Verbosity": testhelper.Comparer{Value: 2, Accessor: "GetTyped"},
+				"LogLevel":  testhelper.Comparer{Value: "info", Accessor: "GetTyped"},
+			},
+
+			OverrideBuiltinHandlers: true,
+			BuiltinHandlers:         map[string]greenery.Handler{"version": testhelper.NopNoArgs},
+		},
 	}
 
 	err := testhelper.RunTestCases(t, tcs, testhelper.TestRunnerOptions{

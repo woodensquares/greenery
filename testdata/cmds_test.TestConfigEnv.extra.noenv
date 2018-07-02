@@ -24,6 +24,7 @@ EXTRA_INT8: config int8
 EXTRA_INT: config int
 EXTRA_LOGFILE: The log file location
 EXTRA_LOGLEVEL: The log level of the program. Valid values are "error", "warn", "info" and "debug"
+EXTRA_NOCFG: If set no configuration file will be loaded
 EXTRA_PRETTY: If set the console output of the logging calls will be prettified
 EXTRA_PTIME: config ptime
 EXTRA_STRING: config string

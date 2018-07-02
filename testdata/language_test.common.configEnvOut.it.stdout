@@ -10,6 +10,7 @@ Le variabili di sistema seguenti sono disponibili per questo programma:
 SIMPLE_CONFIGFILE: Il file di configurazione da usare
 SIMPLE_LOGFILE: Il file dove stampare il log
 SIMPLE_LOGLEVEL: Il livello di logging del programma. Valori validi sono "error", "warn", "info" e "debug"
+SIMPLE_NOCFG: Se questa opzione é settata, nessun file di configurazione sará caricato
 SIMPLE_PRETTY: Se questa opzione é settata, i messaggi sulla console saranno mostrati in modo colorato
 SIMPLE_TRACE: Attiva la modalitá di tracing
 SIMPLE_VERBOSITY: La verbositá del programma, un numero da 0 a 3 inclusi

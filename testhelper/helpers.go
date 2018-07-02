@@ -16,10 +16,12 @@ import (
 	"github.com/woodensquares/greenery"
 )
 
-// CompareFunc is FIXME:DOC
+// CompareFunc is an interface that is fulfilled by compare functions, used
+// when verifying config struct values
 type CompareFunc func(*testing.T, string, interface{}, interface{}) error
 
-// Comparer is FIXME:DOC note we don't send anything on msgandargs
+// Comparer is a struct containing a single expected value, how to retrieve
+// it, and how to compare it.
 type Comparer struct {
 	Value        interface{}
 	Accessor     string
@@ -27,8 +29,8 @@ type Comparer struct {
 	DefaultValue bool
 }
 
-// LogLine is FIXME:DOC note that things to through json which will deserialize
-// things like time.Time as strings, doc
+// LogLine contains an expected log line to compare to. Note that lines pass
+// through json which will deserialize things like time.Time as strings etc.
 type LogLine struct {
 	Level       string
 	Msg         string
@@ -37,7 +39,8 @@ type LogLine struct {
 	CustomRegex map[string]string
 }
 
-// TestFile is FIXME:DOC
+// TestFile describes a file that is expected to be created by the application
+// being tested.
 type TestFile struct {
 	Location string
 	Source   string
@@ -50,22 +53,29 @@ type TestFile struct {
 type TestCase struct {
 	// Name contains the name of the test, will be used as t.Run()'s name
 	Name string
+
 	// Env is a map of strings containing the environment for this test case
 	Env map[string]string
+
 	// CmdLine is the command line passed to our executable
 	CmdLine []string
+
 	// CfgContents is a string containing the configuration file contents for
 	// this test
 	CfgContents string
+
 	// ExecError is the expected exec function error (if any) this will be
 	// matched as a substring
 	ExecError string
+
 	// ExecErrorRegex is the expected exec function error (if any) this will be
 	// matched as a regex
 	ExecErrorRegex string
+
 	// ExecErrorOutput will cause the output of the program (stdout/err/logs)
 	// to be checked even if the execution had an error
 	ExecErrorOutput bool
+
 	// ExpectedValues is a map of interface{} containing the values that are
 	// to be expected to be set in the config object after the environment,
 	// command line and configuration file are taken into account. Any config
@@ -73,43 +83,110 @@ type TestCase struct {
 	// default value as set by the config generator function. This will be
 	// ignored if Validate is set
 	ExpectedValues map[string]Comparer
+
 	// ValuesValidator contains a custom validation function, which will be used
 	// instead of the internal configuration values validation. It will be
 	// passed the configuration, it is expected to fail the test itself if the
 	// validation is unsuccessful.
 	ValuesValidator func(*testing.T, greenery.Config)
+
 	// Trace is used to output trace log messages, trace is an undocumented
 	// log level used primarily during development.
 	Trace bool
 
-	// FIXME:DOC
-	CmdlineCfgName          string
-	ConfigGen               func() greenery.Config
-	OverrideHandlerMap      bool
-	HandlerMap              map[string]greenery.Handler
-	OverrideBuiltinHandlers bool
-	BuiltinHandlers         map[string]greenery.Handler
-	OverrideUserDocList     bool
-	UserDocList             map[string]*greenery.DocSet
-	CfgFile                 string
-	GoldStdOut              *TestFile
-	GoldStdErr              *TestFile
-	GoldLog                 string
-	NoValidateConfigValues  bool
-	ConfigDefaults          *greenery.BaseConfigOptions
-	GoldFiles               []TestFile
-	PrecreateFiles          []TestFile
-	RealFilesystem          bool
-	RemoveFiles             []string
-	CustomVars              []string
-	CustomParser            func(greenery.Config, map[string]interface{}) ([]string, error)
+	// CmdlineCfgName contains a name to be passed as the config file name to
+	// the test, it is typically used to validate a non-existent configuration
+	// file, because configuration files are passed via CfgContents
+	CmdlineCfgName string
 
-	OverrideTraceLogger      bool
-	TraceLogger              greenery.MakeTraceLogger
-	OverridePrettyLogger     bool
-	PrettyLogger             greenery.MakeLogger
+	// ConfigGen is the function that will return the configuration struct to
+	// be used
+	ConfigGen func() greenery.Config
+
+	// OverrideHandlerMap will enable overriding of the test handler map via
+	// HandlerMap
+	OverrideHandlerMap bool
+
+	// HandlerMap is a map of handlers, that will be used on the passed in
+	// configuration.
+	HandlerMap map[string]greenery.Handler
+
+	// OverrideBuiltinHandlers will enable overriding the test default
+	// handlers for the configuration
+	OverrideBuiltinHandlers bool
+
+	// BuiltinHandlers is a map of override builtin handlers, that will be
+	// used on the passed in configuration. Note the key of the map is a
+	// string, not an OverrideHandler type to allow arbitrary test overrides.
+	BuiltinHandlers map[string]greenery.Handler
+
+	// OverrideUserDocList allows overriding of the test user doc list
+	OverrideUserDocList bool
+
+	// UserDocList is a map with the application user documents, if the map
+	// contains a "" key, that will be meant to indicate the default language
+	// docset.
+	UserDocList map[string]*greenery.DocSet
+	CfgFile     string
+
+	// GoldStdOut contains the gold expected standard output for this test case
+	GoldStdOut *TestFile
+
+	// GoldStdErr contains the gold expected standard error for this test case
+	GoldStdErr *TestFile
+
+	// GoldStdOut contains the gold expected logfile for this test case
+	GoldLog string
+
+	// NoValidateConfigValues if set will cause the test to not look at the
+	// configuration values
+	NoValidateConfigValues bool
+
+	// ConfigDefaults allows specifying config defaults via SetOptions on a
+	// per-testcase basis
+	ConfigDefaults *greenery.BaseConfigOptions
+
+	// GoldFiles is a list of expected gold files
+	GoldFiles []TestFile
+
+	// PrecreateFiles is a list of files to be created in the test environment
+	// before executing the test
+	PrecreateFiles []TestFile
+
+	// RealFilesystem controls whether the test executes on the filesystem or
+	// on an in-memory cache
+	RealFilesystem bool
+
+	// RemoveFiles contains a list of files to be removed after the test
+	// execution
+	RemoveFiles []string
+
+	// CustomVars is a list of expected custom variables in the config file
+	CustomVars []string
+
+	// CustomParser contains a custom parser to be used for custom variables
+	CustomParser func(greenery.Config, map[string]interface{}) ([]string, error)
+
+	// OverrideTraceLogger controls overriding of the test default trace
+	// logger creation function
+	OverrideTraceLogger bool
+
+	// TraceLogger contains the MakeTraceLogger function to use
+	TraceLogger greenery.MakeTraceLogger
+
+	// OverridePrettyLogger controls overriding of the test default pretty
+	// logger creation function
+	OverridePrettyLogger bool
+
+	// PrettyLogger contains the MakePrettyLogger function to use
+	PrettyLogger greenery.MakeLogger
+
+	// OverrideStructuredLogger controls overriding of the test default
+	// structured logger creation function
 	OverrideStructuredLogger bool
-	StructuredLogger         greenery.MakeLogger
+
+	// StructuredLogger contains the MakeStructuredLogger function to use
+	StructuredLogger greenery.MakeLogger
 
 	// OutStdOut is the expected stdout output from the executed command
 	OutStdOut string
@@ -123,12 +200,12 @@ type TestCase struct {
 	// OutStdErrRegex will be matched against the stderr output from the executed command
 	OutStdErrRegex string
 
-	// FIXME:DOC this means one regex per expected log line
+	// OutLogAllLines means one regex per expected log line will be tested
 	OutLogAllLines bool
 
-	// FIXME:DOC all regexes must match at least one of the log lines, done in
-	// sequence so go through the log lines until the first regex matches,
-	// then the second and so on
+	// OutLogLines contains the expected log lines. All regexes must match at
+	// least one of the log lines, done in sequence so go through the log
+	// lines until the first regex matches, then the second and so on
 	OutLogLines []LogLine
 
 	// OutLogRegex will be matched against the log output from the executed command
@@ -150,13 +227,14 @@ type TestCase struct {
 // Some commandline optional flags, users can check these as needed in their
 // test logic
 
-// GoldUpdate is FIXME:DOC
+// GoldUpdate is the flag controlling whether the gold files should be updated
 var GoldUpdate = flag.Bool("test.update-gold", false, "update golden files")
 
-// ForceTrace is FIXME:DOC
+// ForceTrace is the flag controlling if the test should be run with tracing
+// enabled for test debugging purposes
 var ForceTrace = flag.Bool("test.force-trace", false, "force trace")
 
-// ForceNoParallel is FIXME:DOC
+// ForceNoParallel is a flag that if set will disable parallel test execution
 var ForceNoParallel = flag.Bool("test.force-no-parallel", false, "force no parallel")
 
 func sanityCheck(t *testing.T, tc *TestCase) {
@@ -208,7 +286,10 @@ func sanityCheck(t *testing.T, tc *TestCase) {
 	}
 }
 
-// CompareIgnoreTmp is FIXME:DOC
+// CompareIgnoreTmp is a function that will compare two files ignoring any
+// temporary files listed in them. This is typically used when comparing
+// configuration files where we want to ignore the log file line, say, is
+// /tmp/xxx in the currently executing test and /tmp/yyy in the gold file
 func CompareIgnoreTmp(t *testing.T, gold, found []byte) bool {
 	goldS := strings.Split(string(gold), "\n")
 	foundS := strings.Split(string(found), "\n")
@@ -231,7 +312,8 @@ func CompareIgnoreTmp(t *testing.T, gold, found []byte) bool {
 	return true
 }
 
-// TestRunnerOptions is FIXME:DOC
+// TestRunnerOptions is a struct containing options for this test runner, see
+// the TestCase documentation for information on the fields available.
 type TestRunnerOptions struct {
 	ConfigGen                func() greenery.Config
 	Parallel                 bool
@@ -249,7 +331,8 @@ type TestRunnerOptions struct {
 	BuiltinHandlers          map[string]greenery.Handler
 }
 
-// LoggingTester is FIXME:DOC
+// LoggingTester is a greenery handler that will output a log message at all
+// possible levels / verbosities.
 func LoggingTester(cfg greenery.Config, args []string) error {
 	fields := []greenery.LogField{
 		cfg.LogInteger("int", 111),
@@ -446,7 +529,7 @@ func RunTestCases(t *testing.T, tcs []TestCase, global TestRunnerOptions) error 
 			}
 
 			// If the user has given us docs with "" it means they want them
-			// to be applied to the default language FIXME:DOC doc
+			// to be applied to the default language
 			if empty, ok := userDocList[""]; ok {
 				userDocList[cfg.GetDefaultLanguage()] = empty
 			}
@@ -520,10 +603,19 @@ func RunTestCases(t *testing.T, tcs []TestCase, global TestRunnerOptions) error 
 				}()
 			}
 
+			overrideMap := map[string]greenery.OverrideHandler{
+				"root":              greenery.OverrideRootHandler,
+				"version":           greenery.OverrideVersionHandler,
+				"config":            greenery.OverrideConfigHandler,
+				"-pre-exec-handler": greenery.OverridePreExecHandler,
+			}
+
 			// Override the handlers if the user requested this
 			if global.OverrideBuiltinHandlers {
 				for kk, vv := range global.BuiltinHandlers {
-					err = cfg.SetHandler(kk, vv)
+					ch, ok := overrideMap[kk]
+					require.True(t, ok, "Invalid override handler %s", kk)
+					err = cfg.SetHandler(ch, vv)
 					require.NoError(t, err)
 				}
 
@@ -531,7 +623,9 @@ func RunTestCases(t *testing.T, tcs []TestCase, global TestRunnerOptions) error 
 
 			if tc.OverrideBuiltinHandlers {
 				for kk, vv := range tc.BuiltinHandlers {
-					err = cfg.SetHandler(kk, vv)
+					ch, ok := overrideMap[kk]
+					require.True(t, ok, "Invalid override handler %s", kk)
+					err = cfg.SetHandler(ch, vv)
 					require.NoError(t, err)
 				}
 

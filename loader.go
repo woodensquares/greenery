@@ -142,63 +142,67 @@ func (bcfg *BaseConfig) load(cfg Config, defaultCfgFileName string, ccmd *cobra.
 	vp *viper.Viper) (err error) {
 	var baseConf *BaseConfig
 	var cfgFile = bcfg.ConfFile
+	var noCfg = bcfg.NoCfg
 
-	// Either no passed config file, or non-absolute name, so allow viper to
-	// search in the places it should
-	if cfgFile == "" || !strings.Contains(cfgFile, string(os.PathSeparator)) {
-		for _, x := range configdir.New("", bcfg.s_appName).QueryFolders(configdir.All) {
-			bcfg.Tracef("Adding path %s", x.Path)
-			vp.AddConfigPath(x.Path)
+	// No cfg has precedence over -c no matter what, if it is set via env or
+	// cmdline don't even try to find a cfg file.
+	if !noCfg {
+		// Either no passed config file, or non-absolute name, so allow viper to
+		// search in the places it should
+		if cfgFile == "" || !strings.Contains(cfgFile, string(os.PathSeparator)) {
+			for _, x := range configdir.New("", bcfg.s_appName).QueryFolders(configdir.All) {
+				bcfg.Tracef("Adding path %s", x.Path)
+				vp.AddConfigPath(x.Path)
+			}
+
+			if cwd, lerr := os.Getwd(); lerr == nil {
+				bcfg.Tracef("Adding path %s", cwd)
+				vp.AddConfigPath(cwd)
+			}
 		}
 
-		if cwd, lerr := os.Getwd(); lerr == nil {
-			bcfg.Tracef("Adding path %s", cwd)
-			vp.AddConfigPath(cwd)
+		if cfgFile == "" {
+			bcfg.Tracef("Cfg file not set, trying with the default %s", defaultCfgFileName)
+			vp.SetConfigFile(defaultCfgFileName)
+		} else {
+			vp.SetConfigFile(cfgFile)
 		}
-	}
 
-	if cfgFile == "" {
-		bcfg.Tracef("Cfg file not set, trying with the default %s", defaultCfgFileName)
-		vp.SetConfigFile(defaultCfgFileName)
-	} else {
-		vp.SetConfigFile(cfgFile)
-	}
+		// Only TOML is supported for now
+		vp.SetConfigType("toml")
 
-	// Only TOML is supported for now
-	vp.SetConfigType("toml")
+		// In case viper/cobra debugging is needed
+		// jwalterweatherman.SetLogThreshold(jwalterweatherman.LevelTrace)
+		// jwalterweatherman.SetStdoutThreshold(jwalterweatherman.LevelTrace)
 
-	// In case viper/cobra debugging is needed
-	// jwalterweatherman.SetLogThreshold(jwalterweatherman.LevelTrace)
-	// jwalterweatherman.SetStdoutThreshold(jwalterweatherman.LevelTrace)
+		if err = vp.ReadInConfig(); err == nil {
+			bcfg.Tracef("Loaded a valid configuration file from %s", vp.ConfigFileUsed())
+			bcfg.s_usedConf = vp.ConfigFileUsed()
+			bcfg.s_loaded = true
+			bcfg.s_cfgDir = path.Dir(vp.ConfigFileUsed())
+		} else {
+			bcfg.Tracef("Could not load config file / config file unset: \"%s\"", cfgFile)
+			// Most commands' options are available on the command line, so it is
+			// possible to run them without a config file, for the ones that do
+			// need some variables set they will validate as needed.
+			_, viperNotFound := err.(viper.ConfigFileNotFoundError)
+			_, golangNotFound := err.(*os.PathError)
 
-	noCfg := false
-	if err = vp.ReadInConfig(); err == nil {
-		bcfg.Tracef("Loaded a valid configuration file from %s", vp.ConfigFileUsed())
-		bcfg.s_usedConf = vp.ConfigFileUsed()
-		bcfg.s_loaded = true
-		bcfg.s_cfgDir = path.Dir(vp.ConfigFileUsed())
-	} else {
-		bcfg.Tracef("Could not load config file / config file unset: \"%s\"", cfgFile)
-		// Most commands' options are available on the command line, so it is
-		// possible to run them without a config file, for the ones that do
-		// need some variables set they will validate as needed.
-		_, viperNotFound := err.(viper.ConfigFileNotFoundError)
-		_, golangNotFound := err.(*os.PathError)
+			if viperNotFound || golangNotFound {
+				// Not an error unless the user did actually want a config file
+				if cfgFile != "" {
+					err = errors.WithMessage(err, fmt.Sprintf("Could not load config file."))
+					return
+				}
+				err = nil
+				noCfg = true
+			}
 
-		if viperNotFound || golangNotFound {
-			// Not an error unless the user did actually want a config file
-			if cfgFile != "" {
-				err = errors.WithMessage(err, fmt.Sprintf("Could not load config file."))
+			if !noCfg {
+				bcfg.Trace("Parse issue")
+				err = errors.WithMessage(err, fmt.Sprintf("Could not parse config file %s", cfgFile))
 				return
 			}
-			err = nil
-			noCfg = true
-		}
-
-		if !noCfg {
-			bcfg.Trace("Parse issue")
-			err = errors.WithMessage(err, fmt.Sprintf("Could not parse config file %s", cfgFile))
-			return
 		}
 	}
 

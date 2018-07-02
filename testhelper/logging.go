@@ -35,7 +35,7 @@ func chanReader(ch chan string, r io.ReadCloser) {
 	ch <- buf.String()
 }
 
-// NewGrabber is FIXME:DOC
+// NewGrabber creates a new grabber struct
 func NewGrabber() *outGrabber {
 	return &outGrabber{}
 }

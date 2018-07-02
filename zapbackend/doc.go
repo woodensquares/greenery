@@ -1,16 +1,12 @@
 // Package greenery/zapbackend is a sample zap logging back-end for greenery
 // based applications.
 /*
-Heading
+The zapbackend package implements the greenery library logging interface,
+using https://github.com/uber-go/zap/ as its back-end. Compared to the
+standard baselogging package, the zapbackend package supports proper
+structured logging as well as ANSI colored pretty logging.
 
-FIXME:DOC
-
-Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non orci
-commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget,
-lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris
-ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec
-dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a,
-aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique
-imperdiet tortor.  Nam euismod tellus id erat.
+The Custom function allows logging with arbitrary zapcore.Field data, if
+maximum speed and flexibility are required.
 */
 package zapbackend

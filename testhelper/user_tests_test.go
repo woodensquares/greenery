@@ -606,7 +606,7 @@ func TestErrorOutput(t *testing.T) {
 			OutStdErrRegex:          "Usage:",
 			OverrideBuiltinHandlers: true,
 			BuiltinHandlers: map[string]greenery.Handler{
-				"pre-exec-handler": func(cfg greenery.Config, args []string) error {
+				"-pre-exec-handler": func(cfg greenery.Config, args []string) error {
 					return fmt.Errorf("pre-exec fail")
 				},
 			},

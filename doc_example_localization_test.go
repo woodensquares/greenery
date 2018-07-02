@@ -132,6 +132,8 @@ Implysay ypetay appnameay elphay [path otay ommandcay] orfay ullfay etailsday.`,
 	"Hetay oglay ilefay ocationlay",
 	greenery.DocPretty,
 	"Fiay etsay hetay onsolecay outputay ofay hetay ogginglay allscay illway ebay ettifiedpray",
+	greenery.DocNoCfg,
+	"Fiay etsay onay onfigurationay ilefay illway ebay oadedlay",
 	greenery.DocNoEnv,
 	"Fiay etsay hetay environmentay ariablesvay illway otnay ebay onsideredcay",
 	greenery.DocVerbosity,
@@ -279,6 +281,7 @@ func Example_localized() {
 	//       --help               help information for the application.
 	//       --log-file string    The log file location
 	//   -l, --log-level string   The log level of the program. Valid values are "error", "warn", "info" and "debug" (default "error")
+	//       --no-cfg             If set no configuration file will be loaded
 	//       --no-env             If set the environment variables will not be considered
 	//       --pretty             If set the console output of the logging calls will be prettified
 	//   -v, --verbosity int      The verbosity of the program, an integer between 0 and 3 inclusive. (default 1)
@@ -308,6 +311,7 @@ func Example_localized() {
 	//       --help               Elphay informationay orfay ethay applicationay.
 	//       --log-file string    Hetay oglay ilefay ocationlay
 	//   -l, --log-level string   Hetay oglay evellay ofay hetay ogrampray. Alidvay aluesvay areay "error", "warn", "info" anday "debug" (default "error")
+	//       --no-cfg             Fiay etsay onay onfigurationay ilefay illway ebay oadedlay
 	//       --no-env             Fiay etsay hetay environmentay ariablesvay illway otnay ebay onsideredcay
 	//       --pretty             Fiay etsay hetay onsolecay outputay ofay hetay ogginglay allscay illway ebay ettifiedpray
 	//   -v, --verbosity int      Hetay erbosityvay ofay hetay ogrampray, anay integeray etweenbay 0 anday 3 inclusiveay. (default 1)

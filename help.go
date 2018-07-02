@@ -8,24 +8,9 @@ import (
 	"github.com/woodensquares/greenery/internal/doc"
 )
 
-// In order to simplify localization efforts by non-coders, besides writing
-// the wanted help documentation in a DocSet struct format, it is possible to
-// write it as a list of strings with identifiers, this should hopefully
-// enable easy editing by non-go-developers who can be simply told they should
-// change only text between double quotes.
-//
-// The format is as follows
-//
-// Section Delimiter (base, help, cmd, )
-// Section content
-// Section Delimiter
-// ...
-//
-// Each section can appear only once in the list of strings in any order. Each
-// section has a separate set of internal identifiers discussed below.
-// Complete examples are available in the unit tests as well as in
-// doc/internal/
-
+// These constants are to be used when creating string-list user
+// documentation, they contain identifiers used for the section delimiters, as
+// well as for all the individual options.
 const (
 	// DocBaseDelimiter is the delimiter to be used for the base section, this
 	// will map to the toplevel of the DocSet struct.
@@ -186,6 +171,9 @@ const (
 
 	// DocNoEnv is the help information for the NoEnv flag.
 	DocNoEnv = doc.NoEnv
+
+	// DocNoCfg is the help information for the NoCfg flag.
+	DocNoCfg = doc.NoCfg
 
 	// DocVerbosity is the help information for the Verbosity flag.
 	DocVerbosity = doc.Verbosity

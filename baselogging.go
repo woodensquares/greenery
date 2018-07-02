@@ -103,27 +103,27 @@ func (l *baseLogger) ErrorStructured(s string, lf ...LogField) {
 	l.doPrint(s, lf...)
 }
 
-// LogString returns a field representing a string value
+// LogString returns a LogField representing a string logging value
 func (l *baseLogger) LogString(name string, value string) LogField {
 	return LogField{Key: name, Type: stringType, String: value}
 }
 
-// LogInteger returns a field representing an integer value
+// LogInteger returns a LogField representing an integer logging value
 func (l *baseLogger) LogInteger(name string, value int) LogField {
 	return LogField{Key: name, Type: intType, Integer: value}
 }
 
-// LogTime returns a field representing a time.Time value
+// LogTime returns a LogField representing a time.Time logging value
 func (l *baseLogger) LogTime(name string, value time.Time) LogField {
 	return LogField{Key: name, Type: timeType, Time: value}
 }
 
-// LogDuration returns a field representing a time.Duration value
+// LogDuration returns a LogField representing a time.Duration logging value
 func (l *baseLogger) LogDuration(name string, value time.Duration) LogField {
 	return LogField{Key: name, Type: durationType, Duration: value}
 }
 
-// LogGeneric returns a field representing a generic value
+// LogGeneric returns a LogField representing a generic logging value
 func (l *baseLogger) LogGeneric(name string, value interface{}) LogField {
 	return LogField{Key: name, Type: genericType, Generic: value}
 }

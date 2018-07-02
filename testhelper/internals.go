@@ -515,7 +515,8 @@ func getValue(t *testing.T, name, accessor string, current interface{}) interfac
 	return rv[0].Interface()
 }
 
-// CompareGetterToGetter is FIXME:DOC
+// CompareGetterToGetter is a comparer that will compare the values returned
+// by the GetTyped method for this particular flag
 func CompareGetterToGetter(t *testing.T, name string, expected, current interface{}) error {
 	evalue := getValue(t, name, "GetTyped", expected)
 	cvalue := getValue(t, name, "GetTyped", current)
@@ -523,7 +524,8 @@ func CompareGetterToGetter(t *testing.T, name string, expected, current interfac
 	return nil
 }
 
-// CompareValueToGetter is FIXME:DOC
+// CompareValueToGetter is a comparer that will compare the value of the flag
+// as returned by the GetTyped method, to the expected value as-is
 func CompareValueToGetter(t *testing.T, name string, expected, current interface{}) error {
 	cvalue := getValue(t, name, "GetTyped", current)
 	require.Equalf(t, expected, cvalue, "Variable %s", name)

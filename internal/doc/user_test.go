@@ -44,6 +44,7 @@ func TestUser(t *testing.T) {
 	require.Equal(t, LogFile, "LogFile")
 	require.Equal(t, Pretty, "Pretty")
 	require.Equal(t, NoEnv, "NoEnv")
+	require.Equal(t, NoCfg, "NoCfg")
 	require.Equal(t, Verbosity, "Verbosity")
 	require.Equal(t, DoTrace, "DoTrace")
 	require.Equal(t, CfgLocation, "CfgLocation")

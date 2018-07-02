@@ -54,6 +54,52 @@ func TestBadConfig(t *testing.T) {
 
 	tcs := []testhelper.TestCase{
 		testhelper.TestCase{
+			Name: "Bad command 1",
+			ConfigGen: func() greenery.Config {
+				return &struct {
+					*greenery.BaseConfig
+				}{
+					BaseConfig: greenery.NewBaseConfig("partial", map[string]greenery.Handler{
+						"te&st": testhelper.NopNoArgs,
+					}),
+				}
+			},
+			OverrideUserDocList: true,
+			UserDocList: map[string]*greenery.DocSet{
+				"": &greenery.DocSet{
+					Usage: map[string]*greenery.CmdHelp{
+						"te&st": &greenery.CmdHelp{
+							Short: "test",
+						},
+					},
+				},
+			},
+			ExecError: "Command name te&st contains an invalid character, any of <|&, or space is not permitted",
+		},
+		testhelper.TestCase{
+			Name: "Bad command 2",
+			ConfigGen: func() greenery.Config {
+				return &struct {
+					*greenery.BaseConfig
+				}{
+					BaseConfig: greenery.NewBaseConfig("partial", map[string]greenery.Handler{
+						"te,st": testhelper.NopNoArgs,
+					}),
+				}
+			},
+			OverrideUserDocList: true,
+			UserDocList: map[string]*greenery.DocSet{
+				"": &greenery.DocSet{
+					Usage: map[string]*greenery.CmdHelp{
+						"te,st": &greenery.CmdHelp{
+							Short: "test",
+						},
+					},
+				},
+			},
+			ExecError: "Command name te,st contains an invalid character, any of <|&, or space is not permitted",
+		},
+		testhelper.TestCase{
 			Name: "Conf variable, no command",
 			ConfigGen: func() greenery.Config {
 				return &struct {

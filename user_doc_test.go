@@ -126,6 +126,8 @@ Implysay ypetay appnameay elphay [path otay ommandcay] orfay ullfay etailsday.`,
 	"Hetay oglay ilefay ocationlay",
 	"Pretty", // greenery.DocPretty
 	"Fiay etsay hetay onsolecay outputay ofay hetay ogginglay allscay illway ebay ettifiedpray",
+	"NoCfg", // greenery.DocNoCfg
+	"Fiay etsay onay onfigurationay ilefay illway ebay oadedlay",
 	"NoEnv", // greenery.DocNoEnv
 	"Fiay etsay hetay environmentay ariablesvay illway otnay ebay onsideredcay",
 	"Verbosity", // greenery.DocVerbosity

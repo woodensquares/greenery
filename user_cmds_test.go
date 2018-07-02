@@ -459,6 +459,7 @@ func TestConfigInitExtra(t *testing.T) {
 			ExpectedValues: map[string]testhelper.Comparer{
 				"LogLevel":  testhelper.Comparer{Value: "info", Accessor: "GetTyped"},
 				"NoEnv":     testhelper.Comparer{Value: true},
+				"NoCfg":     testhelper.Comparer{Value: false},
 				"Pretty":    testhelper.Comparer{Value: true},
 				"Verbosity": testhelper.Comparer{Value: 2, Accessor: "GetTyped"},
 				"Bool":      testhelper.Comparer{Value: false},

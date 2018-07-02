@@ -18,6 +18,7 @@ func TestBasic(t *testing.T) {
 				"CfgForce":          testhelper.Comparer{Value: false},
 				"CfgLocation":       testhelper.Comparer{Value: "cwd", Accessor: "GetTyped"},
 				"NoEnv":             testhelper.Comparer{Value: false},
+				"NoCfg":             testhelper.Comparer{Value: false},
 				"Pretty":            testhelper.Comparer{Value: false},
 				"Verbosity":         testhelper.Comparer{Value: 1, Accessor: "GetTyped"},
 				"VersionFull":       testhelper.Comparer{Value: ""},
@@ -49,7 +50,7 @@ func TestBasic(t *testing.T) {
 
 func TestHandlers(t *testing.T) {
 	okhandlers := map[string]greenery.Handler{
-		"pre-exec-handler": func(cfg greenery.Config, args []string) error {
+		"-pre-exec-handler": func(cfg greenery.Config, args []string) error {
 			fmt.Println("pre-exec called")
 			return nil
 		},
@@ -68,13 +69,13 @@ func TestHandlers(t *testing.T) {
 	}
 
 	failpreexec := map[string]greenery.Handler{
-		"pre-exec-handler": func(cfg greenery.Config, args []string) error {
+		"-pre-exec-handler": func(cfg greenery.Config, args []string) error {
 			return fmt.Errorf("pre-exec fail")
 		},
 	}
 
 	failhandlers := map[string]greenery.Handler{
-		"pre-exec-handler": func(cfg greenery.Config, args []string) error {
+		"-pre-exec-handler": func(cfg greenery.Config, args []string) error {
 			fmt.Println("pre-exec called")
 			return nil
 		},

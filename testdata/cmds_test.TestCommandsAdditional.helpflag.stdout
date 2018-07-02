@@ -15,6 +15,7 @@ Global Flags:
       --help               help information for the application.
       --log-file string    The log file location
   -l, --log-level string   The log level of the program. Valid values are "error", "warn", "info" and "debug" (default "error")
+      --no-cfg             If set no configuration file will be loaded
       --no-env             If set the environment variables will not be considered
       --pretty             If set the console output of the logging calls will be prettified
   -v, --verbosity int      The verbosity of the program, an integer between 0 and 3 inclusive. (default 1)

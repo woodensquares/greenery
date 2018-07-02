@@ -13,7 +13,6 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-// FIXME:DOC
 const (
 	genericType = iota
 
@@ -23,7 +22,8 @@ const (
 	timeType
 )
 
-// FIXME:DOC
+// The available logging levels for this backend are as follows and will map
+// to the Debug, Info, Warn and Error zap methods.
 const (
 	Debug = iota
 	Info
@@ -120,32 +120,32 @@ func (l *zapLogger) ErrorStructured(s string, lf ...greenery.LogField) {
 	}
 }
 
-// LogString is FIXME:DOC
+// LogString returns a greenery LogField for a string logging value
 func (l *zapLogger) LogString(name string, value string) greenery.LogField {
 	return greenery.LogField{Key: name, Type: stringType, String: value}
 }
 
-// LogInteger is FIXME:DOC
+// LogInteger returns a greenery LogField for an int logging value
 func (l *zapLogger) LogInteger(name string, value int) greenery.LogField {
 	return greenery.LogField{Key: name, Type: intType, Integer: value}
 }
 
-// LogTime is FIXME:DOC
+// LogTime returns a greenery LogField for a time.Time logging value
 func (l *zapLogger) LogTime(name string, value time.Time) greenery.LogField {
 	return greenery.LogField{Key: name, Type: timeType, Time: value}
 }
 
-// LogDuration is FIXME:DOC
+// LogDuration is returns a greenery LogField for a time.Duration logging value
 func (l *zapLogger) LogDuration(name string, value time.Duration) greenery.LogField {
 	return greenery.LogField{Key: name, Type: durationType, Duration: value}
 }
 
-// LogGeneric is FIXME:DOC
+// LogGeneric is returns a greenery LogField for a generic logging value
 func (l *zapLogger) LogGeneric(name string, value interface{}) greenery.LogField {
 	return greenery.LogField{Key: name, Type: genericType, Generic: value}
 }
 
-// Sync is FIXME:DOC
+// Sync will be used to sync the zap log
 func (l *zapLogger) Sync() error {
 	return l.zl.Sync()
 }
@@ -170,7 +170,7 @@ func logValueFromString(e string) zapcore.Level {
 	panic(fmt.Sprintf("Invalid log level %s, only error, warn, info and debug are supported", e))
 }
 
-// TraceLogger is FIXME:DOC
+// TraceLogger returns a greenery Logger to be used for tracing
 func TraceLogger(cfg greenery.Config) greenery.Logger {
 	return &zapLogger{zl: zap.New(
 		zapcore.NewCore(
@@ -197,7 +197,7 @@ func TraceLogger(cfg greenery.Config) greenery.Logger {
 		zap.AddCaller())}
 }
 
-// PrettyLogger is FIXME:DOC
+// PrettyLogger returns a greenery Logger to be used for pretty logging
 func PrettyLogger(cfg greenery.Config, l string, w io.Writer) greenery.Logger {
 	return &zapLogger{zl: zap.New(
 		zapcore.NewCore(
@@ -219,7 +219,7 @@ func PrettyLogger(cfg greenery.Config, l string, w io.Writer) greenery.Logger {
 		zap.AddCallerSkip(2))}
 }
 
-// StructuredLogger is FIXME:DOC
+// StructuredLogger  returns a greenery Logger to be used for structured logging
 func StructuredLogger(cfg greenery.Config, l string, w io.Writer) greenery.Logger {
 	return &zapLogger{zl: zap.New(
 		zapcore.NewCore(

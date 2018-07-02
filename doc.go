@@ -1,16 +1,23 @@
 // Package greenery is a localizable struct annotation based command-line
 // application framework.
 /*
-Heading
+Greenery can be used to create localized CLI applications supporting
+command-line, environment and configuration-file options.
 
-FIXME:DOC
+It is an opinionated porcelain built on top of Cobra
+(https://github.com/spf13/cobra) and Viper
+(https://github.com/spf13/viper). In greenery, rather than via code, the
+configuration variables are defined in a single configuration structure, which
+is mapped to the user-visible variables via golang struct annotations.
 
-Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non orci
-commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget,
-lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris
-ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec
-dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a,
-aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique
-imperdiet tortor.  Nam euismod tellus id erat.
+User commands are invoked with a configuration structure set to the currently
+effective configuration, taking into account the command line, the environment
+and any specified configuration files.
+
+A localizeable documentation functionality is also provided, together with
+some predefined commands that can be used to generate configuration files that
+can be used by the application itself.
+
+See https://github.com/woodensquares/greenery for additional usage information.
 */
 package greenery

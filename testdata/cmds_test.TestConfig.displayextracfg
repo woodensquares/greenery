@@ -7,11 +7,12 @@ this command, so commandline overrides for config/env values will not be in
 effect.  
 
 ---------------------------------------------------------------------------
-ConfFile: /tmp/tcfg237838922.toml
+ConfFile: /tmp/tcfg118777044.toml
 Loaded base,user languages (accessible via GetDocs): ,en,en
-Loaded config file, if any (accessible via GetConfigFile): /tmp/tcfg237838922.toml
-LogFile: /tmp/tlog609071393.log
+Loaded config file, if any (accessible via GetConfigFile): /tmp/tcfg118777044.toml
+LogFile: /tmp/tlog186566691.log
 LogLevel: error
+NoCfg: false
 Verbosity: 1
 VersionFull: 
 VersionMajor: 0

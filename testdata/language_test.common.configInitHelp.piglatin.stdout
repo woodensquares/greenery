@@ -15,6 +15,7 @@ Lobalgay Lagsfay:
       --help               Elphay informationay orfay ethay applicationay.
       --log-file string    Hetay oglay ilefay ocationlay
   -l, --log-level string   Hetay oglay evellay ofay hetay ogrampray. Alidvay aluesvay areay "error", "warn", "info" anday "debug" (default "error")
+      --no-cfg             Fiay etsay onay onfigurationay ilefay illway ebay oadedlay
       --no-env             Fiay etsay hetay environmentay ariablesvay illway otnay ebay onsideredcay
       --pretty             Fiay etsay hetay onsolecay outputay ofay hetay ogginglay allscay illway ebay ettifiedpray
   -v, --verbosity int      Hetay erbosityvay ofay hetay ogrampray, anay integeray etweenbay 0 anday 3 inclusiveay. (default 1)

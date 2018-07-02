@@ -97,6 +97,9 @@ const Pretty = "Pretty"
 // NoEnv is documented as part of the non-internal class
 const NoEnv = "NoEnv"
 
+// NoEnv is documented as part of the non-internal class
+const NoCfg = "NoCfg"
+
 // Verbosity is documented as part of the non-internal class
 const Verbosity = "Verbosity"
 
@@ -141,8 +144,6 @@ const CustomDelimiter = "------ DELIMITER:CUSTOM ------"
 //
 // This will be processed once the program starts into internal structs, it
 // will panic if not successful so it should be easy to test.
-//
-// FIXME:DOC put this info also in the public docs
 var DefaultDocs = map[string][]string{
 	"en": english,
 	"it": italian,
